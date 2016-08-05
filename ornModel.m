@@ -1,0 +1,32 @@
+%% ornModel - model fly ORNs
+close all
+clear all
+clc
+%%
+tLength = 6; % seconds
+fs = 1000; % sampling rate
+N = tLength * fs; % number of samples
+n = 0 : N - 1; % samples
+f0 = 2;
+baseline = 10;
+
+stimLeng = 1 * fs; % sec * fs
+stimInt = 0.1; %intensity (arbitrary units)
+numFilts = 2;
+
+fBin = (n - (N / 2)) * (fs / N); % set center to zero, fs/N is freq res. (nyquist is fs/(2N))
+
+odor = zeros(N, 1);
+for j = 4 : 2 : floor(stimLeng \ N);
+    odor(stimLeng * (j - 1) + 1 : j * stimLeng) = stimInt; % 0.1 conc. stimulus
+end
+oF = mkGauss(N, fwhm(30, N, fs), 0);
+
+%%
+ornResp = ornFilter(numFilts, N, fs, odor);
+
+figure(1)
+clf
+% plotyy(n, ornResp(1 : 3, :), n, odor)
+plotyy(n, mean(ornResp), n, odor)
+% plot(n, ornResp(1 : 3, :), 'LineWidth', 2), hold on
