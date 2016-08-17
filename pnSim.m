@@ -17,8 +17,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [pnResp, weights] = pnSim(ornResp, lnResp, N, fs, odor)
 %%
-ornResp = ornResp .* repmat(power(max(ornResp()), -1), N, 1) .* 1; % normalize to 1
-lnResp = lnResp .* repmat(power(max(lnResp()), -1), N, 1) .* 0.85; % normalize to 1
+% ornResp = ornResp .* repmat(power(max(ornResp()), -1), N, 1) .* 1; % normalize to 1
+% lnResp = lnResp .* repmat(power(max(lnResp()), -1), N, 1) .* 0.85; % normalize to 1
 
 pnCount = size(ornResp, 2);
 n = 1 : N;
@@ -28,19 +28,19 @@ learnRate = 0.1;
 % wStore(:, 1) = weights;
 backTime = 500;
 
-
+eiScale = 0.0000051;
 
 for j = backTime + 1 : N;
     for k = 1 : pnCount
         
-        pnResp(j, k) = ornResp(j - 1, k) + lnResp(j - 1, :) * weights(:, k);
+        pnResp(j, k) = ornResp(j - 1, k) + eiScale * lnResp(j - 1, :) * weights(:, k);
                
 weightStep = learnRate * (lnResp(j, :) * sum(ornResp(j, k) - mean(ornResp(j - backTime : j - 1, k))      )); % time-average of last [backTime] points.
 
-temp = ornResp(j - backTime : j - 1, k);
-timeWeight = [1 : backTime] / sum([1 : backTime]);
-
-weightStep = learnRate * (lnResp(j, :) * (ornResp(j, k) - timeWeight * temp)); % weight in time - more recent weighted more heavily.  Smooths PN curve.
+% temp = ornResp(j - backTime : j - 1, k);
+% timeWeight = [1 : backTime] / sum([1 : backTime]);
+% 
+% weightStep = learnRate * (lnResp(j, :) * (ornResp(j, k) - timeWeight * temp)); % weight in time - more recent weighted more heavily.  Smooths PN curve.
 
 
 
@@ -69,7 +69,8 @@ for j = 1 : pnCount
     plot(n, pnResp(:, j), 'Color', [0 0.8 0.2]);
     plot(n, odor * 0.1, 'k')
 %     legend('ORN', 'PN', 'odor', 'Location', 'NorthEast')
-axis([52470 54040 0 1]), axis square
+% axis([52470 54040 0 1]), axis square
+axis([50470 52040 0 150]), axis square
 % axis([4470 6040 0 1]), axis square
 end
 

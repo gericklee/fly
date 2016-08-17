@@ -14,7 +14,7 @@ baseline = 10;
 ornCount = 4;
 % lnCount = 50; % unused - using stimLeng as the number 
 
-stimLeng = 1.5 * fs; % sec * fs
+stimLeng = 1.0 * fs; % sec * fs
 stimInt = 0.5; %intensity (arbitrary units)
 numTrial = 6;
 fBin = (n - (N / 2)) * (fs / N); % set center to zero, fs/N is freq res. (nyquist is fs/(2N))
@@ -29,7 +29,7 @@ rng('default'); % ensure same curve each time (can test later on different seeds
 ornResp = ornDynamicSimWithInactivation(4, N, fs, odor) * 1000 + baseline;
 %% LN
 lnBasis = lnDeltaFcn(stimLeng + 50, N, fs, odor);
-lnBasis = lnGaussFcn(200, N, fs, odor);
+% lnBasis = lnGaussFcn(200, N, fs, odor);
 lnResp = lnBasisProjection(lnBasis, ornResp, N, fs, odor);
 %% PN
 
@@ -38,26 +38,5 @@ pnResp = pnSim(ornResp, lnResp, N, fs, odor);
 
 
 
-
-
-
-
-
-
-%% 
-temp = lnResp(:, [1 : 80 : 1550]);%[1 : 15 : 190]);
-figure(1), clf, hold on
-cMap = viridis(size(temp, 2) + 30);
-cMap(1 : 15, :) = [];
-plot(n, odor * 13 - 10, 'k')
-
-for j = 1 : size(temp, 2)
-% temp(:, j) = temp(:, j) * power(max(temp(:, j)), -1);
-plot(n, temp(:, j), 'o-', 'Color', cMap(j, :), 'MarkerFaceColor', cMap(j, :))
-
-end
-axis([4300 5400 -10 200]), axis square
-% set(gcf, 'RendererMode', 'manual', )
-% axis([0 10000 -10 400]), axis square
 
 
