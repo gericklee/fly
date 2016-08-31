@@ -20,7 +20,11 @@ function ornResp = ornDynamicSimWithInactivation(ornCount, N, fs, odor)
 % n = 1 : N; % samples
 
 for j = 1 : ornCount;
-    kBase = randi([10 90], 1);
+%     kBase = randi([10 90], 1);
+    kBase = randi([5 90], 1);
+    if j == 2;
+        kBase = 5; % force the smallest value - added 2016-08-19
+    end
     kRatio = 0.19 + randi(30, 1) / 100;
     kOn = kBase / fs; % convert to units of samples (larger = faster)
     kOff = kOn * kRatio; % convert to units of samples (larger = faster)
