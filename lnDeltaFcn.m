@@ -4,10 +4,9 @@ function lnResp = lnDeltaFcn(lnCount, N, fs, odor)
 
 lnResp = zeros(N, lnCount) + 0;
 oStart = find(odor - circshift(odor, -1) < 0);
-timeLag =  1; % samples delay at onset, and between delta fcns/LNs
-timeLag1 = 2;
+timeLag =  10; % samples delay at onset, and between delta fcns/LNs
 for j = 1 : lnCount
-    lnResp(oStart + timeLag * j, j) = 1;    
+    lnResp(timeLag + oStart + 1 * j, j) = 1;    
 end
 
 % temp = round(lnCount / 2);

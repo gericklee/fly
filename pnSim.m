@@ -28,14 +28,17 @@ learnRate = 0.1;
 % wStore(:, 1) = weights;
 backTime = 200;
 
-eiScale = 0.0000001; % if using mean of all ORNs for weightStep
-% eiScale = 0.0000005; % if using only the same ORN
+eiScale = 0.0000001; % if using mean of all ORNs for weightStep and a gaussian Basis
+% eiScale = 0.0000005; % if using only the same ORN 
+% eiScale = 0.000001; % for deltaFcn + mean of all ORNs
 % eiScale = 1;
 
 pnResp = zeros(size(ornResp));
 for j = backTime + 1 : N;
     for k = 1 : pnCount
-        
+        if j == 3850
+            pause
+        end
         pnResp(j, k) = ornResp(j - 1, k) + eiScale * lnResp(j - 1, :) * weights(:, k);
 %         pnResp(j, k) = mean(ornResp(j - 20 : j - 1, k)) + eiScale * lnResp(j - 1, :) * weights(:, k); % sliding mean - weakens onset transient  
 
@@ -69,13 +72,14 @@ end
 figure(1), clf, subplot(1, 2, 1)
 for j = 1 : 2% pnCount
 %     subplot(1, 2, j)
-    subplot(2, 2, j + 2), hold on%
+    subplot(3, 2, j + 4), hold on%
     plot(n, ornResp(:, j), 'Color', [0 0.2 0.8], 'LineWidth', 2); hold on
     plot(n, pnResp(:, j), 'Color', [0 0.8 0.2]);
     plot(n, odor * 10, 'k')
 %     legend('ORN', 'PN', 'odor', 'Location', 'NorthEast')
 % axis([52470 54040 0 1]), axis square
 axis([90800 92200 0 150]), axis square
+axis([114800 116200 0 150]), axis square
 % axis([900 6200 0 150]), axis square
 end
 
@@ -83,7 +87,21 @@ end
 % figure(2), clf, subplot(1, 2, 1)
 for j = 1 : 2% pnCount
 %     subplot(1, 2, j)
-    subplot(2, 2, j), hold on%
+    subplot(3, 2, j), hold on%
+    plot(n, ornResp(:, j), 'Color', [0 0.2 0.8], 'LineWidth', 5); hold on
+    plot(n, pnResp(:, j), 'Color', [0 0.8 0.2]);
+    plot(n, odor * 10, 'k')
+%     legend('ORN', 'PN', 'odor', 'Location', 'NorthEast')
+axis([2900 4100 0 150]), axis square
+% axis([90800 92200 0 150]), axis square
+
+% axis([50800 52200 0 150]), axis square
+end
+
+% figure(2), clf, subplot(1, 2, 1)
+for j = 1 : 2% pnCount
+%     subplot(1, 2, j)
+    subplot(3, 2, j + 2), hold on%
     plot(n, ornResp(:, j), 'Color', [0 0.2 0.8], 'LineWidth', 5); hold on
     plot(n, pnResp(:, j), 'Color', [0 0.8 0.2]);
     plot(n, odor * 10, 'k')
@@ -93,7 +111,7 @@ axis([2900 4100 0 150]), axis square
 axis([50800 52200 0 150]), axis square
 % axis([900 6200 0 150]), axis square
 end
-
+return
 %%
 cMap = viridis(200);
 w = weights;

@@ -6,7 +6,7 @@ close all
 clc
 %% Generate odor
 
-tLength = 1200; % seconds
+tLength = 120; % seconds
 fs = 1000; % sampling rate (samples per second)
 N = tLength * fs; % samples
 n = [1 : N].'; % samples
@@ -28,12 +28,12 @@ end
 rng('default'); % ensure same curve each time (can test later on different seeds)
 ornResp = ornDynamicSimWithInactivation(4, N, fs, odor) * 1000 + baseline;
 %% LN
-% lnBasis = lnDeltaFcn(stimLeng + 50, N, fs, odor);
+% lnBasis = lnDeltaFcn(stimLeng + 40, N, fs, odor);
 lnBasis = lnGaussFcn(200, N, fs, odor);
 lnResp = lnBasisProjection(lnBasis, ornResp, N, fs, odor);
 %% PN
 
-pnResp = pnSim(ornResp, lnResp, N, fs, odor);
+[pnResp, weights] = pnSim(ornResp, lnResp, N, fs, odor);
 
 %% 
 % figure(2), clf, hold on
