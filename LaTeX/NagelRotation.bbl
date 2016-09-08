@@ -1,4 +1,4 @@
-\begin{thebibliography}{8}
+\begin{thebibliography}{9}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -10,13 +10,12 @@ Curtis~C Bell.
 \newblock {An Efference Copy Which is Modified by Reafferent Input}.
 \newblock \emph{Science}, 214\penalty0 (4519):\penalty0 450--453, 1981.
 
-\bibitem[Bell et~al.()Bell, Caputi, Grant, and Serrier]{Bell1993}
+\bibitem[Bell et~al.(1993)Bell, Caputi, Grant, and Serrier]{Bell1993}
 Curtis~C Bell, Angel Caputi, Kirsty Grant, and Jacques Serrier.
 \newblock {Storage of a sensory pattern by anti-Hebbian synaptic plasticity in
   an electric fish.}
-\newblock \emph{Proc. Natl. Acad. Sci. U. S. A.}, \penalty0 (May):\penalty0
-  4650--4654.
-\newblock ISSN 0027-8424.
+\newblock \emph{Proc. Natl. Acad. Sci. U. S. A.}, 90\penalty0 (May):\penalty0
+  4650--4654, 1993.
 \newblock \doi{10.1073/pnas.90.10.4650}.
 
 \bibitem[Bell et~al.(2000)Bell, Han, Sugawara, and Grant]{Bell2000}
@@ -26,49 +25,47 @@ Curtis~C Bell, Victor~Z Han, Yoshiko Sugawara, and Kirsty Grant.
 \newblock \emph{Nature}, 405\penalty0 (June), 2000.
 \newblock \doi{10.1038/nature01070.1.}
 
-\bibitem[Kennedy et~al.()Kennedy, Wayne, Kaifosh, Alvi{\~{n}}a, Abbott, and
+\bibitem[Kennedy et~al.(2014)Kennedy, Wayne, Kaifosh, Alvi{\~{n}}a, Abbott, and
   Sawtell]{Kennedy2014}
 Ann Kennedy, Greg Wayne, Patrick Kaifosh, Karina Alvi{\~{n}}a, L~F Abbott, and
   Nathaniel~B Sawtell.
 \newblock {A temporal basis for predicting the sensory consequences of motor
   commands in an electric fish.}
-\newblock \emph{Nature neuroscience}, \penalty0 (3):\penalty0 416--22.
-\newblock ISSN 1546-1726.
+\newblock \emph{Nat. Neurosci.}, 17\penalty0 (3):\penalty0 416--22, 2014.
 \newblock \doi{10.1038/nn.3650}.
 
-\bibitem[Nagel and Wilson({\natexlab{a}})]{Nagel2011}
+\bibitem[Nagel and Wilson(2011)]{Nagel2011}
 Katherine~I Nagel and Rachel~I Wilson.
 \newblock {Biophysical mechanisms underlying olfactory receptor neuron
   dynamics.}
-\newblock \emph{Nature neuroscience}, \penalty0 (2):\penalty0 208--216,
-  {\natexlab{a}}.
-\newblock ISSN 1097-6256.
+\newblock \emph{Nat. Neurosci.}, 14\penalty0 (2):\penalty0 208--216, 2011.
 \newblock \doi{10.1038/nn.2725}.
 
-\bibitem[Nagel and Wilson({\natexlab{b}})]{Nagel2016}
+\bibitem[Nagel and Wilson(2016)]{Nagel2016}
 Katherine~I Nagel and Rachel~I Wilson.
 \newblock {Mechanisms Underlying Population Response Dynamics in Inhibitory
   Interneurons of the Drosophila Antennal Lobe.}
-\newblock \emph{The Journal of neuroscience : the official journal of the
-  Society for Neuroscience}, \penalty0 (15):\penalty0 4325--4338,
-  {\natexlab{b}}.
-\newblock ISSN 1529-2401.
+\newblock \emph{J. Neurosci.}, 36\penalty0 (15):\penalty0 4325--4338, 2016.
 \newblock \doi{10.1523/JNEUROSCI.3887-15.2016}.
 
-\bibitem[Nagel et~al.()Nagel, Hong, and Wilson]{Nagel2015}
+\bibitem[Nagel et~al.(2015)Nagel, Hong, and Wilson]{Nagel2015}
 Katherine~I Nagel, Elizabeth~J Hong, and Rachel~I Wilson.
 \newblock {Synaptic and circuit mechanisms promoting broadband transmission of
   olfactory stimulus dynamics}.
-\newblock \emph{Nature Neuroscience}, \penalty0 (1):\penalty0 56--65.
-\newblock ISSN 1097-6256.
+\newblock \emph{Nat. Neurosci.}, 18\penalty0 (1):\penalty0 56--65, 2015.
 \newblock \doi{10.1038/nn.3895}.
 
-\bibitem[Wilson()]{Wilson2013}
+\bibitem[Olsen et~al.(2010)Olsen, Bhandawat, and Wilson]{Olsen2010}
+Shawn~R Olsen, Vikas Bhandawat, and Rachel~I Wilson.
+\newblock {Divisive normalization in olfactory population codes}.
+\newblock \emph{Neuron}, 66\penalty0 (2):\penalty0 287--299, 2010.
+\newblock \doi{10.1016/j.neuron.2010.04.009}.
+
+\bibitem[Wilson(2013)]{Wilson2013}
 Rachel~I Wilson.
 \newblock {Early olfactory processing in Drosophila: mechanisms and
   principles.}
-\newblock \emph{Annual review of neuroscience}, pages 217--41.
-\newblock ISSN 1545-4126.
+\newblock \emph{Annu. Rev. Neurosci.}, 36:\penalty0 217--41, 2013.
 \newblock \doi{10.1146/annurev-neuro-062111-150533}.
 
 \end{thebibliography}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.6.15)  2 SEP 2016 19:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.6.15)  7 SEP 2016 21:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -555,7 +555,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 36--36
 
  []
 
@@ -563,157 +563,171 @@ Underfull \hbox (badness 10000) in paragraph at lines 37--37
 File: 2016-06-16FilterExample.png Graphic file (type png)
 
 <use 2016-06-16FilterExample.png>
-Package pdftex.def Info: 2016-06-16FilterExample.png used on input line 39.
+Package pdftex.def Info: 2016-06-16FilterExample.png used on input line 38.
 (pdftex.def)             Requested size: 283.29646pt x 410.89229pt.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2 <./2016-06-16FilterExam
-ple.png>]
-<2016-08-26_Example_Odor.png, id=19, 331.9602pt x 340.3917pt>
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] <2016-08-26_Example_Odor.p
+ng, id=12, 331.9602pt x 340.3917pt>
 File: 2016-08-26_Example_Odor.png Graphic file (type png)
 
 <use 2016-08-26_Example_Odor.png>
-Package pdftex.def Info: 2016-08-26_Example_Odor.png used on input line 50.
+Package pdftex.def Info: 2016-08-26_Example_Odor.png used on input line 51.
 (pdftex.def)             Requested size: 232.37054pt x 238.27255pt.
- [3 <./2016-08-26_Example_Odor.png>]
-<2016-06-17ModelORNresponse.png, id=26, 465.3385pt x 334.048pt>
+
+<2016-06-17ModelORNresponse.png, id=13, 465.3385pt x 334.048pt>
 File: 2016-06-17ModelORNresponse.png Graphic file (type png)
 
 <use 2016-06-17ModelORNresponse.png>
-Package pdftex.def Info: 2016-06-17ModelORNresponse.png used on input line 65.
-(pdftex.def)             Requested size: 465.33737pt x 334.04718pt.
-
-Overfull \hbox (39.77144pt too wide) in paragraph at lines 65--67
- []| [] 
- []
-
-
+Package pdftex.def Info: 2016-06-17ModelORNresponse.png used on input line 66.
+(pdftex.def)             Requested size: 279.20526pt x 200.43034pt.
+ [2] [3 <./2016-06-16FilterExample.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 75--75
 
  []
 
-<2016-08-05_gauss_line_linear_model.png, id=27, 325.215pt x 300.322pt>
+<2016-08-05_gauss_line_linear_model.png, id=25, 325.215pt x 300.322pt>
 File: 2016-08-05_gauss_line_linear_model.png Graphic file (type png)
 
 <use 2016-08-05_gauss_line_linear_model.png>
 Package pdftex.def Info: 2016-08-05_gauss_line_linear_model.png used on input l
 ine 77.
-(pdftex.def)             Requested size: 390.25604pt x 360.3846pt.
-
-Overfull \hbox (38.43306pt too wide) in paragraph at lines 76--79
- []|  [] 
- []
-
-[4 <./2016-06-17ModelORNresponse.png>]
+(pdftex.def)             Requested size: 227.64894pt x 210.22397pt.
+ [4 <./2016-08-26_Example_Odor.png>] [5 <./2016-06-17ModelORNresponse.png> <./2
+016-08-05_gauss_line_linear_model.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 92--92
 
  []
 
-<2016-08-05DynORNnoInactivation.png, id=32, 412.3405pt x 296.307pt>
+<2016-08-05DynORNnoInactivation.png, id=37, 412.3405pt x 296.307pt>
 File: 2016-08-05DynORNnoInactivation.png Graphic file (type png)
 
 <use 2016-08-05DynORNnoInactivation.png>
 Package pdftex.def Info: 2016-08-05DynORNnoInactivation.png used on input line 
 94.
-(pdftex.def)             Requested size: 412.33948pt x 296.30627pt.
-
+(pdftex.def)             Requested size: 288.63637pt x 207.41348pt.
+ [6 <./2016-08-05DynORNnoInactivation.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 110--110
 
  []
 
-<2016-08-19_ORN_dynamic_responses.png, id=33, 493.57733pt x 506.42534pt>
+<2016-08-19_ORN_dynamic_responses.png, id=42, 493.57733pt x 506.42534pt>
 File: 2016-08-19_ORN_dynamic_responses.png Graphic file (type png)
 
 <use 2016-08-19_ORN_dynamic_responses.png>
 Package pdftex.def Info: 2016-08-19_ORN_dynamic_responses.png used on input lin
 e 112.
-(pdftex.def)             Requested size: 296.14868pt x 303.85753pt.
- [5] [6 <./2016-08-05_gauss_line_linear_model.png>] [7 <./2016-08-05DynORNnoIna
-ctivation.png>] [8 <./2016-08-19_ORN_dynamic_responses.png>]
-<2016-08-19_LNdelay_basis.png, id=52, 667.56067pt x 687.90334pt>
+(pdftex.def)             Requested size: 197.42743pt x 202.56654pt.
+ [7 <./2016-08-19_ORN_dynamic_responses.png>] <2016-08-19_LNdelay_basis.png, id
+=48, 667.56067pt x 687.90334pt>
 File: 2016-08-19_LNdelay_basis.png Graphic file (type png)
 
 <use 2016-08-19_LNdelay_basis.png>
 Package pdftex.def Info: 2016-08-19_LNdelay_basis.png used on input line 132.
 (pdftex.def)             Requested size: 267.01953pt x 275.15646pt.
 
-<2016-08-26_LNgaussianBasis_excerpt.png, id=53, 348.8232pt x 342.8007pt>
+<2016-08-26_LNgaussianBasis_excerpt.png, id=49, 348.8232pt x 342.8007pt>
 File: 2016-08-26_LNgaussianBasis_excerpt.png Graphic file (type png)
 
 <use 2016-08-26_LNgaussianBasis_excerpt.png>
 Package pdftex.def Info: 2016-08-26_LNgaussianBasis_excerpt.png used on input l
 ine 139.
-(pdftex.def)             Requested size: 244.17456pt x 239.95885pt.
- [9] [10 <./2016-08-19_LNdelay_basis.png>]
-<2016-09-02_PN_3timepoints_deltabasis.png, id=63, 600.0819pt x 687.0468pt>
+(pdftex.def)             Requested size: 174.41116pt x 171.39992pt.
+
+<2016-08-15_LNdelayExample.png, id=50, 766.865pt x 731.533pt>
+File: 2016-08-15_LNdelayExample.png Graphic file (type png)
+
+<use 2016-08-15_LNdelayExample.png>
+Package pdftex.def Info: 2016-08-15_LNdelayExample.png used on input line 147.
+(pdftex.def)             Requested size: 230.06128pt x 219.4616pt.
+
+</home/gerick/Documents/Figures/2016-08-18_LNgaussians_earlyResp.png, id=51, 73
+3.942pt x 706.90767pt>
+File: /home/gerick/Documents/Figures/2016-08-18_LNgaussians_earlyResp.png Graph
+ic file (type png)
+
+<use /home/gerick/Documents/Figures/2016-08-18_LNgaussians_earlyResp.png>
+Package pdftex.def Info: /home/gerick/Documents/Figures/2016-08-18_LNgaussians_
+earlyResp.png used on input line 155.
+(pdftex.def)             Requested size: 220.1843pt x 212.07393pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [8 <./2016-08-19_LNdelay_basis.png>] [9 <./2016-08-26_LNgaussianBasis_excerpt.
+png> <./2016-08-15_LNdelayExample.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [10 </home/gerick/Documents/Figures/2016-08-18_LNgaussians_earlyResp.png>]
+<2016-09-02_PN_3timepoints_deltabasis.png, id=67, 600.0819pt x 687.0468pt>
 File: 2016-09-02_PN_3timepoints_deltabasis.png Graphic file (type png)
 
 <use 2016-09-02_PN_3timepoints_deltabasis.png>
 Package pdftex.def Info: 2016-09-02_PN_3timepoints_deltabasis.png used on input
- line 166.
+ line 183.
 (pdftex.def)             Requested size: 432.05862pt x 494.67332pt.
 
-Overfull \hbox (1.99059pt too wide) in paragraph at lines 165--168
+Overfull \hbox (1.99059pt too wide) in paragraph at lines 182--185
  []|  [] 
  []
 
 
-Underfull \vbox (badness 5374) has occurred while \output is active []
+LaTeX Warning: Float too large for page by 26.50664pt on input line 185.
 
- [11 <./2016-08-26_LNgaussianBasis_excerpt.png>] [12 <./2016-09-02_PN_3timepoin
-ts_deltabasis.png>] <2016-09-01_PN_3timepoints.png, id=72, 608.2725pt x 703.187
-1pt>
+[11] [12 <./2016-09-02_PN_3timepoints_deltabasis.png>]
+<2016-09-01_PN_3timepoints.png, id=75, 608.2725pt x 703.1871pt>
 File: 2016-09-01_PN_3timepoints.png Graphic file (type png)
 
 <use 2016-09-01_PN_3timepoints.png>
-Package pdftex.def Info: 2016-09-01_PN_3timepoints.png used on input line 184.
+Package pdftex.def Info: 2016-09-01_PN_3timepoints.png used on input line 201.
 (pdftex.def)             Requested size: 425.78786pt x 492.22762pt.
 
-<2016-09-02_Delta_Gauss_weights.png, id=73, 610.6815pt x 338.2236pt>
+<2016-09-02_Delta_Gauss_weights.png, id=76, 610.6815pt x 338.2236pt>
 File: 2016-09-02_Delta_Gauss_weights.png Graphic file (type png)
 
 <use 2016-09-02_Delta_Gauss_weights.png>
 Package pdftex.def Info: 2016-09-02_Delta_Gauss_weights.png used on input line 
-194.
-(pdftex.def)             Requested size: 427.47415pt x 236.7549pt.
-
-Overfull \hbox (37.47415pt too wide) in paragraph at lines 194--196
- [][] 
+211.
+(pdftex.def)             Requested size: 305.34001pt x 169.11139pt.
+ [13] [14 <./2016-09-01_PN_3timepoints.png>] (./NagelRotation.bbl [15 <./2016-0
+9-02_Delta_Gauss_weights.png>]
+Underfull \hbox (badness 1320) in paragraph at lines 59--63
+[]\OT1/cmr/m/n/10 Shawn R Olsen, Vikas Bhan-dawat, and Rachel I Wil-son.  Di-vi
+-sive nor-mal-
  []
 
 
-Underfull \vbox (badness 1194) has occurred while \output is active []
+Underfull \hbox (badness 2213) in paragraph at lines 59--63
+\OT1/cmr/m/n/10 iza-tion in ol-fac-tory pop-u-la-tion codes.  \OT1/cmr/m/it/10 
+Neu-ron\OT1/cmr/m/n/10 , 66(2):287--299, 2010.  doi:
+ []
 
- [13]
-[14 <./2016-09-01_PN_3timepoints.png>] [15 <./2016-09-02_Delta_Gauss_weights.pn
-g>] (./NagelRotation.bbl [16]) [17] (./NagelRotation.aux) ) 
+) [16] (./NagelRotation.aux) ) 
 Here is how much of TeX's memory you used:
- 3430 strings out of 494953
- 44995 string characters out of 6180977
- 114270 words of memory out of 5000000
- 6639 multiletter control sequences out of 15000+600000
- 11684 words of font info for 41 fonts, out of 8000000 for 9000
+ 3447 strings out of 494953
+ 45600 string characters out of 6180977
+ 113373 words of memory out of 5000000
+ 6653 multiletter control sequences out of 15000+600000
+ 12031 words of font info for 42 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 38i,7n,32p,1222b,311s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on NagelRotation.pdf (17 pages, 2213678 bytes).
+ 38i,8n,32p,1222b,291s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmti12.pfb>
+Output written on NagelRotation.pdf (16 pages, 2929404 bytes).
 PDF statistics:
- 142 PDF objects out of 1000 (max. 8388607)
- 85 compressed objects within 1 object stream
+ 139 PDF objects out of 1000 (max. 8388607)
+ 80 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -9,7 +9,7 @@
 \usepackage{placeins}
 \usepackage{graphics}
 \usepackage{fixltx2e}
-\usepackage[square, colon, super, sort&compress]{natbib}
+\usepackage[square, colon, numbers, sort&compress]{natbib}
 
 
 
@@ -17,20 +17,19 @@
 \pagestyle{headings}
  
 \begin{document}
-\title{Schnagel Lab Rotation - Modeling of Early Fly Olfaction\\
-  \large \textit{Always be faking data}}
+\title{Modelling the role of local neurons in weakening odor onset transients in the antennal lobe of \textit{Drosophila}\\
+  \large \textit{Schnagel Lab Theory Rotation - Always be faking data}}
 \author{Gerick Lee}
-\date{}
+\date{2016-09-02}
 \maketitle
 \section{Introduction}
+In the antennal lobe of \textit{Drosophila}, olfactory processing is performed by three neuron types: Olfactory Receptor Neurons (ORNs), which bind to odors and transduce this signal into a spiking output, forming synapses with inhibitory Local Neurons (LNs), as well as excitatory Projection Neurons (PNs), which transmit the signal to the rest of the fly brain.  LNs receive projections from many ORNs in a non-specific manner, and project to the presynaptic side of the ORN-PN synapse in a similarly non-specific fashion \cite{Nagel2015}.  PNs are more selective, connecting only to ORNs with a specific odor preference (further details of antennal lobe olfactory circuitry can be found in \citet{Wilson2013}).
 
-Partially inspired by the work of Bell, Sawtell, and their colleagues\cite{Bell1993, Bell2000,  Bell1981, Kennedy2014}, we sought to model the early olfactory stages of  \textit{Drosophila.}  We hypothesized that the onset transient seen in Olfactory Receptor Neurons (ORNs) might be removed by the Local Neurons (LNs) in a manner similar to that seen in the weakly electric fish.  If a plastic system could adjust itself to faithfully represent an input stimulus, it would provide an explanation for the emergence of such behavior \textit{in vivo}; an explanation that doesn't depend on a genetic or other pre-programmed factor.
+While ORN responses to odor can vary in a number of ways, a common feature is a sharp onset transient which decays during sustained odor presentation \cite{Nagel2011}.  In contrast, this transient is much weaker in PNs, with the reduction in transient strength being modulated by inhibition \cite{Nagel2015}.
 
-To model this, we used a model of ORNs similar to that in \citet{Nagel2011}.  Both linear (convolutional) models and dynamical firing rate models were created, and were fed into a delay-line LN model, where increases in the odor strength (not the ORNs) would generate a single firing rate increase after a fixed delay.  These firing rates were then fed into a model of the Projection Neurons (PNs), which used a simple anti-Hebbian learning rule to adjust the weights of the inhibitory neurons.  Further circuit properties are described in \citet{Wilson2013}.
+In the weakly electric fish, the work of Bell and colleagues has shown that ganglion cells can learn and project a inhibitory negative image\cite{Bell1993, Bell2000,  Bell1981, Kennedy2014}.  This negative image is used to cancel the artifact generated when the fish sends its pulse into its environment. Inspired by this, we hypothesized that the LNs might be used to weaken onset transients; a learning mechanism would allow the fly to self-organize its olfactory behavior rather than depending on genetic or other pre-programming.  
 
-\section{Groundwork}
-As a first step, we needed to generate reliable gaussian filters (the linear ORN models were generated using either a difference-of-gaussians or gaussian-by-line multiplication).  Figure \ref{fig:filt} shows a test signal (\textit{\textbf{A}}) and the frequency representation of that signal, with an overlapping gaussian filter (\textit{\textbf{B}}).  The filter has a Full-Width-at-Half-Max (FWHM) of 2 Hz, which can be seen in the figure.  
-
+To test this, we used a model of ORNs similar to that proposed by \citet{Nagel2011}.  Both linear (convolutional) models and dynamical firing rate models were created, and were fed into a delay-line LN model, where increases in the odor strength (not the ORNs) would generate a single firing rate increase after a fixed delay.  These firing rates were then fed into a model of the Projection Neurons (PNs), which used a simple anti-Hebbian learning rule to adjust the weights of the inhibitory neurons.  
 \begin{figure}
 \centering
 
@@ -39,9 +38,11 @@ As a first step, we needed to generate reliable gaussian filters (the linear ORN
 \includegraphics[scale=0.7]{2016-06-16FilterExample.png}
 \label{fig:filt}
 \end{figure}
+\section{Groundwork}
+As a first step, we needed to generate reliable gaussian filters (the linear ORN models were generated using either a difference-of-gaussians or gaussian-by-line multiplication).  Figure \ref{fig:filt} shows a test signal (\textit{\textbf{A}}) and the frequency representation of that signal, with an overlapping gaussian filter (\textit{\textbf{B}}).  The filter has a Full-Width-at-Half-Max (FWHM) of 2 Hz, which can be seen in the figure.  
 
 \subsection{Odor}
-As an input for my model system, we generated a simulated odor as a zero vector with the length of the desired simulation (with a simulated sample rate of $1000$ Hz).  we then generated simulated step odor presentations by setting consecutive windows to a fixed value (in this case $0.5$), for a period corresponding to a desired presentation length (usually $1$ to $1.5$ seconds, or $1000-1500$ samples).  An example section of an odor stimulus is shown as Figure \ref{fig:odor}.
+As an input for our model system, we generated a simulated odor as a zero vector with the length of the desired simulation (with a simulated sample rate of $1000$ Hz).  we then generated simulated step odor presentations by setting consecutive windows to a fixed value (in this case $0.5$), for a period corresponding to a desired presentation length (usually $1$ to $1.5$ seconds, or $1000-1500$ samples).  An example section of an odor stimulus is shown as Figure \ref{fig:odor}.
 
 \begin{figure}
 \centering
@@ -54,44 +55,43 @@ As an input for my model system, we generated a simulated odor as a zero vector 
 
 %\chapter{Methods}
 \section{ORN Modelling}
-For our investigation of PN responses, we first needed a model of ORNs.  We began with a linear filter model before moving to a dynamical model, inspired by success of the model in \citet{Nagel2011}.
+For our investigation of PN responses, we first needed a model of ORNs.  We began with a linear filter model before moving to a dynamical model, inspired by the success of the model in \citet{Nagel2011}.
 \subsection{Linear Filter Models}
 \subsubsection{Difference-of-Gaussian Model}
-To model ORNs, we first used a linear filter model using both Difference-of-Gaussians (DoG) and line-gaussian multiplication as my filters in the frequency domain.  Our first attempt used a DoG filter with five parameters (governing the width of each gaussian, as well as their offset from the signal, and each other). Figure \ref{fig:orn1} shows an example curve.  Note that it is possible to rectify the response at zero, so as to better capture the asymmetries observed \textit{in vivo.}
+To model ORNs, we first used a linear filter model using both Difference-of-Gaussians (DoG) and line-gaussian multiplication as the filters in the frequency domain.  Our first attempt used a DoG filter with five parameters (governing the width of each gaussian, as well as their offset from the signal, and each other). Figure \ref{fig:orn1} shows an example curve, with the accompanying odor.  Note that it is possible to rectify the response at zero, so as to better capture the asymmetries observed \textit{in vivo.}
 
 \begin{figure}
 \centering
 \caption{\textbf{Difference-of-Gaussian based linear filter model} Odor pulse (in arbitrary units) is shown in blue.}
-\hspace*{-1.25cm}\includegraphics[scale=1]{2016-06-17ModelORNresponse.png}
+\hspace*{-1.25cm}\includegraphics[scale=0.6]{2016-06-17ModelORNresponse.png}
 \label{fig:orn1}
 \end{figure}
 \subsubsection{Gaussian-Line Model}
-To reduce the number of free parameters, we replaced the DoG filter with one multiplying a gaussian filter with a line.  This model was also rectified at zero, to avoid negative firing rates (and return more realistic ORN responses).  Three example responses (two onset, one offset - all of which were generated using the same function [off and onset are determined by the same parameters]) are shown in Figure \ref{fig:orn2}.  
-
+To reduce the number of free parameters, we replaced the DoG filter with one multiplying a gaussian filter with a line.  This model was also rectified at zero, to avoid negative firing rates (and return more realistic ORN responses).  Three example responses (two onset, one offset - all of which were generated using the same function [on and offset transient-type responses are determined by the same parameters]) are shown in Figure \ref{fig:orn2}.  
 
 
 \begin{figure}
 \centering
 \caption{\textbf{Variability in ORN firing rates: gaussian-by-line model.}  Odor strength (in black, at bottom) is in arbitrary units. \newline}
-\hspace*{1.25cm}
-\includegraphics[scale=1.2]{2016-08-05_gauss_line_linear_model.png}
+\hspace*{-1.25cm}
+\includegraphics[scale=0.7]{2016-08-05_gauss_line_linear_model.png}
 \label{fig:orn2}
 \end{figure}
 
 \subsection{Dynamic Model}
-For greater accuracy, we switched to a dynamic model of receptor function.  This model was governed by the following:
+For greater accuracy, we switched to a dynamic model of receptor function.  This model was governed by the following equation:
 \begin{equation}
 \frac{dR^*}{dt} = k_{on}[O] - (k_{on}[O] + k_{off})R^*,
 \end{equation}
-where $R^*$ is the proportion of bound receptor (between 0 and 1), $[O]$ is the odor concentration, and there are two rate constants $k.$  This curve could be multiplied by an arbitrary scalar to better reflect real-world firing rates.
+where $R^*$ is the proportion of bound receptor (between 0 and 1), $[O]$ is the odor concentration, and there are two scalar rate constants $k_{on}$ and $k_{off}.$  The output could be multiplied by an arbitrary scalar to better reflect real-world firing rates.
 
-In this model (Figure \ref{fig:orn3}) activation alone varies with concentration (as in \cite{Nagel2011}).  This model also saturates with increasing concentration (as a result of the limited range of $R^*$).
+In this model (Figure \ref{fig:orn3}) activation alone varies with concentration (as in \cite{Nagel2011}), resulting from the fact that only $k_{on}$ is affected by odor concentration.  This model also saturates with increasing concentration (as a result of the limited range of $R^*$).
 
 \begin{figure}
 \centering
 \caption{\textbf{ORN firing rates: Basic dynamic model.}  Odor strength (in black, at bottom) is in arbitrary units, though relative magnitudes are preserved.\newline}
 \hspace*{-1cm}
-\includegraphics[scale=1]{2016-08-05DynORNnoInactivation.png}
+\includegraphics[scale=0.7]{2016-08-05DynORNnoInactivation.png}
 \label{fig:orn3}
 \end{figure}
 Unsatisfied with the shape of the ORN response in this model, we began to experiment with various inactivation terms.  We first used a paradigm in which bound receptor ($R^*$) could vary between an active and inactive ($R^i$) state (data not shown).  We then converged on a model in which inactive receptor recycled back to the unbound state ($R$).  We modeled this with the following equations:
@@ -109,19 +109,19 @@ This model (Figure \ref{fig:orn4}) kept the onset-concentration dependence, and 
 \centering
 \caption{\textbf{ORN firing rates: Dynamic model with one-way inactivation.}  Odor strength (in black, at bottom) is in arbitrary units.\newline}
 \hspace*{-1cm}
-\includegraphics[scale=0.6]{2016-08-19_ORN_dynamic_responses.png}
+\includegraphics[scale=0.4]{2016-08-19_ORN_dynamic_responses.png}
 \label{fig:orn4}
 \end{figure}
 
 \section{LN model}
 To model LNs, we used a two-stage model.  The first step was to generate a series of "basis-functions", where each LN was temporally linked to the onset of odors (importantly, because odors were always simulated as idealized, consistent step functions, we used odors, not ORN responses, to trigger LN basis functions).  Each LN basis function was evenly spaced from other LNs, and together, they tiled the range of step-durations used.   Two types of basis functions were used: The first type was a set of simple delta functions (depicted in Figure \ref{fig:ln1}), where each time bin had exactly one responsive LN delta function assigned to it (leading to an unrealistically large number of simulated LNs).  The second type was a set of tightly overlapping gaussian functions (reducing the number of required LNs to a more physiologically plausible $200$ (reviewed in \cite{Nagel2016}). Gaussian peaks were spaced $6$ bins apart, and are depicted in Figures \ref{fig:ln2}.  For both types of basis set, a delay was added between odor onset and the first LN basis function.
 
-After the basis set was generated, the second step was to project the ORN responses from all simulated ORNs on to the LN population, to mirror the all-to-all ORN to LN projections seen \textit{in vivo} (Wilson, 2004).  This projection is depicted in Equation \ref{eq:LNrate}.
+After the basis set was generated, the second step was to project the ORN responses from all simulated ORNs on to the LN population, to mirror the all-to-all ORN to LN projections seen \textit{in vivo} \cite{Wilson2013}.  This projection is depicted in Equation \ref{eq:LNrate}.
 \begin{equation}
 \vec{r}_{LN}(t) = \sum\limits_{i} ^{N_{ORN}}{\vec{b}_{LN}(t)^T * \vec{r}_{ORN}(t)},
 \label{eq:LNrate}
 \end{equation}
-using $\vec{r}_{LN}(t)$ as the firing rate of all LNs at time $t, \vec{b}_{LN}(t)$ as the value of the basis set (either delta functions or gaussians) at time $t,$ and $\vec{r}_{ORN}(t)$ as the firing rate of all ORNs in the system at time $t.$  This results in a vector with a length corresponding to the number of ORNs.  The firing rate was then the sum of this vector.
+using $\vec{r}_{LN}(t)$ as the firing rate of all LNs at time $t, \vec{b}_{LN}(t)$ as the value of the basis set (either delta functions or gaussians) at time $t,$ and $\vec{r}_{ORN}(t)$ as the firing rate of all ORNs in the system at time $t.$  This results in a vector with a length corresponding to the number of ORNs.  The firing rate was then the sum of this vector.  Examples of LN firing rates are shown in Figures \ref{fig:ln3} and \ref{fig:ln4} for the delta and gaussian basis functions, respectively.
 
 
 % One potential improvement may be to bias the LN spacing towards the onset ala Kennedy et al.
@@ -136,40 +136,57 @@ using $\vec{r}_{LN}(t)$ as the firing rate of all LNs at time $t, \vec{b}_{LN}(t
 \centering
 \caption{\textbf{LN basis set: Evenly spaced gaussians.}  Odor strength (in black) is in arbitrary units.}
 \hspace*{-1.5cm}
-\includegraphics[scale=0.7]{2016-08-26_LNgaussianBasis_excerpt.png}
+\includegraphics[scale=0.5]{2016-08-26_LNgaussianBasis_excerpt.png}
 \label{fig:ln2}
 \end{figure}
 
+\begin{figure}
+\centering
+\caption{\textbf{LN responses: ORN projection onto a delta basis set.}  For display purposes, an evenly spaced subsampling of LNs is shown.  Odor strength (in black) is in arbitrary units.}
+\hspace*{-1.5cm}
+\includegraphics[scale=0.3]{2016-08-15_LNdelayExample.png}
+\label{fig:ln3}
+\end{figure}
+
+\begin{figure}
+\centering
+\caption{\textbf{LN responses: ORN projection onto a gaussian basis set.}  Twelve LNs are shown.  Odor strength (in black) is in arbitrary units.}
+\hspace*{-1.5cm}
+\includegraphics[scale=0.3]{2016-08-18_LNgaussians_earlyResp.png}
+\label{fig:ln4}
+\end{figure}
+
+
 \section{PN model}
-To test our main hypothesis, we used a simple learning rule governing the inhibition from LNs to PNs.  We modeled the inputs to PNs as a simple additive combination of ORN and LN inputs, with a PN receiving exactly one ORN input (one-to-one ORN to PN connectivity) and LN inputs from the entire population of LNs (all-to-all LN to PN connectivity).  We modelled the firing rate of a given PN $i$ as:
+To test our main hypothesis, we used a simple learning rule governing the inhibition from LNs to PNs.  We modeled the inputs to PNs as a simple additive combination of ORN and LN inputs, with a PN receiving exactly one ORN input (one-to-one ORN to PN connectivity) and LN inputs from the entire population of LNs (all-to-all LN to PN connectivity).  We modelled the firing rate of the $i^{th}$ PN as:
 \begin{equation}
 r_{PN_i}(t) = r_{ORN_i}(t - 1) +  \Big(\beta * \vec{r}_{LN}(t - 1)^T * \vec{w}\Big),
 \label{eq:PN}
 \end{equation}
-where $\vec{r}_{PN_i}(t)$ was the firing rate of the $ ith$ PN at time $ t, r_{ORN_i}(t - 1)$ was the firing rate of the ith ORN at time $t - 1, \beta$ was a scale factor to weaken the degree of inhibition ($\beta$ was set to values below one: $1E-6$ was used for the delta function basis, and $1E-7$ was used for the gaussian basis).  $\vec{r}_{LN}(t - 1)$ was the vector of LN firing rates at time $t - 1,$ and $\vec{w}$ was the vector of weights, which was initialized at $-0.3,$ and was restricted to negative values (or zero).
+where $\vec{r}_{PN_i}(t)$ was the firing rate of the $ ith$ PN at time $ t, r_{ORN_i}(t - 1)$ was the firing rate of the ith ORN at time $t - 1, \beta$ was a scale factor to weaken the degree of inhibition ($\beta$ was set to values below one: $1E-6$ was used for the delta function basis, and $1E-7$ was used for the gaussian basis).  $\vec{r}_{LN}(t - 1)$ was the vector of LN firing rates at time $t - 1,$ and $\vec{w}$ was the vector of weights, which was initialized at $-0.3,$ and was restricted to the range $[-\infty, \, 0]$.
 
 \subsection{Learning rule (weight adjustment)}
 Weight adjustments for the inputs to a given ORN were modeled with the following rule:
 \begin{equation}
-\frac{d\vec{w}}{dt} = \vec{w}(t) - \alpha * \vec{r}_{LN}(t) * \sum\limits_{n}^{N_{ORN}} r_{ORN_i}(t) - \bar{r}_{ORN_n}(t - \tau : t)
+\frac{d\vec{w}}{dt} = \vec{w}(t) - \alpha * \vec{r}_{LN}(t) * \sum\limits_{n}^{N_{ORN}} r_{ORN_i}(t) - \bar{r}_{ORN_n}(t - \tau : t),
 \end{equation}
-where $\alpha$ was a constant learning rate, set to $0.1$.  The weights occupied the range from $[-\infty, 0],$ and were driven by the mean firing rate of ORNs across the preceding $\tau$ bins ($\tau$ was generally set to $200 \,ms$)- note that the mean ORN firing rate included all ORNs, and not just the one whose weights were being adjusted (also of note is that the $r_{ORN_i}(t)$ term does not change with the index $n.$  
+where $\alpha$ was a constant learning rate, set to $0.1$.  Changes for a given weight were driven by LN activity which coincided with deviations in the $i^{th}$ ORN firing rate from the ORN population mean across the preceding $\tau$ bins ($\tau$ was generally set to $200 \,ms$): Note that the mean ORN firing rate included all ORNs, and not just the one whose weights were being adjusted (also of note is that the $r_{ORN_i}(t)$ term does not change with the index $n$).    
 
-For a given LN weight to update, two conditions must be met: The LN must be active (both basis sets used a baseline firing rate of zero), and the respective ORN must have a firing rate deviating from the average across the previous $\tau$ time bins.  If either value is zero, the weight will not change.
+For a given LN weight to update, two conditions must be met: The LN must be active (both basis sets used a baseline firing rate of zero), and the respective ORN must have a firing rate deviating from the average across the previous $\tau$ time bins.  If either value is zero, the weight will not change.  The magnitude of the weight adjustment was predominantly driven by the difference between the ORN rate and the population mean rate.
 
 \section{PN results}
 
 \begin{figure}
 \centering
-\caption{\textbf{PN responses, early and late - delta LN basis set}  The left panel depicts an ORN and PN response during the first odor pulse; the right column depicts the same ORN and PN after learning.  Odor strength (in black) is in arbitrary units.}
+\caption{\textbf{PN responses, early, middle, and late - delta LN basis set}  The each column depicts three different responses of a different ORN-PN pair to an odor pulse.  The left column has a strong onset transient with fast decay, the right column has a weaker onset transient and slower decay.  The first row is the first odor presentation, the middle row is the thirteenth, and the bottom row is the twenty-third.  The ORN responses are the same within a given column.  Odor strength (in black) is in arbitrary units.}
 \hspace*{-1.5 cm}
 \includegraphics[scale=0.72]{2016-09-02_PN_3timepoints_deltabasis.png}
 \label{fig:pn1}
 \end{figure}
 
-Two sample PNs, from a set of four, and using the delta basis set for the LN population is shown in Figure \ref{fig:pn1}.  For reference, ORN inputs are also shown.  The top row depicts the PN response at the first odor presentation.  At that time, weights have yet to change from their initial values.  As a result, the initial PN response closely reflects the dynamics of the ORN input.
+Two sample PNs, from a set of four, and using the delta basis set for the LN population are shown in Figure \ref{fig:pn1}.  For reference, ORN inputs are also shown.  The top row depicts the PN response at the first odor presentation.  At that time, weights have yet to change from their initial values.  As a result, the initial PN response closely reflects the dynamics of the ORN input.
 
-The middle row shows the response to the thirteenth odor presentation, and the bottom row depicts the 23rd odor presentation (presentations to display were chosen arbitrarily).  Because of the imposed delay in the model, the initial ORN transient cannot be inhibited - LNs are not yet active for the first ten ms of the response.  Following this delay, for both the middle and bottom row, the effects of LN inhibition can be seen in the weakened onset response - the onset transient is no longer as strong as it is in the ORN inputs.  
+The middle row shows the response to the thirteenth odor presentation, and the bottom row depicts the twenty-third odor presentation (presentations for display were chosen arbitrarily).  Because of the imposed delay in the model, the initial ORN transient cannot be inhibited - LNs are not yet active for the first ten ms of the response.  Following this delay, for both the middle and bottom row, the effects of LN inhibition can be seen in the weakened onset response - the onset transient is no longer as strong as it is in the ORN inputs.  
 
 Figure \ref{fig:pn2} depicts PN responses in the same manner as in Figure \ref{fig:pn1}, but using the gaussian basis set for the LNs. Results are qualitatively similar, with a noticeable difference being the weakening of the early onset transient - the non-zero width of the gaussians shortens the lag (the first LN gaussian is centered at the tenth ms after onset - the same as the first delta function).  
 
@@ -186,12 +203,12 @@ These slow fluctuations in PN firing rate end once the ORN firing rate has been 
 \end{figure}
 
 \subsection{Weights}
-Figure \ref{fig:weights} shows the weights after training for both basis sets.  Because weights were unrestricted, they continue to grow for each odor presentation.  Weight adjustments are partially a function of the deviation of the input ORN firing rate (that is, from a single ORN) from the population average across the last $\tau$ ms.  Hence the early weights grow at a much higher pace than those later on.
+Figure \ref{fig:weights} shows the weights after training for both basis sets.  Because weights were unrestricted, they continue to grow for each odor presentation.  Weight adjustments are partially a function of the deviation of the input ORN firing rate (that is, from a single ORN) from the population average across the last $\tau$ ms.  Hence the weights during the initial odor response grow at a much faster pace than those from the latter part of the odor stimulus.
 
 \begin{figure}
 \centering
-\caption{\textbf{LN weight vectors after a 120s simulation}  The left panel depicts weights using the delta function LN basis set; the right panel depicts weights using the gaussian LN basis set.  The black trace depicts the left column of Figures \ref{fig:pn1} and \ref{fig:pn2}, while the purple trace depicts the ORN from the right column (with the weaker ORN onset transient). }
-\includegraphics[scale=0.7]{2016-09-02_Delta_Gauss_weights.png}
+\caption{\textbf{LN weight vectors after a 120s simulation (29 odor presentations)}  The left panel depicts weights using the delta function LN basis set; the right panel depicts weights using the gaussian LN basis set.  The black trace depicts the left column of Figures \ref{fig:pn1} and \ref{fig:pn2}, while the purple trace depicts the ORN from the right column (with the weaker ORN onset transient). }
+\includegraphics[scale=0.5]{2016-09-02_Delta_Gauss_weights.png}
 \label{fig:weights}
 \end{figure}
 
@@ -199,7 +216,7 @@ Figure \ref{fig:weights} shows the weights after training for both basis sets.  
 We set out to investigate whether a system implementing a simple learning rule could learn to weaken onset transients, and generate a circuit output which more closely matched the original input signal.  Our model succeeded at generating a simulated PN signal that captures a number of the features seen in actual PN responses \cite{Nagel2015}, and it did so using a minimal set of parameters.  To claim that this model represents the solution used \textit{in vivo} would be a stretch (and is almost certainly untrue - weight values are extraordinarily high, and continue to grow across repeat presentations); nevertheless, it is possible that the principles driving our model - namely a Hebbian weight adjustment scheme, whereby LN inhibition learns to account for onset transients by becoming more negative - may be functionally similar to those seen in biology.  The above-mentioned example of the weakly electric fish is evidence of a similar solution to a parallel problem.  More physiological and modeling work will need to be done before any strong claims can be made; for now, it suffices to say that we have failed to disprove this model as a potential solution to the problem.
 
 \subsection{Problems and inaccuracies}
-In the creation of such a simplistic model, a number of tradeoffs had to be made.  Chief among them is the unrealistic nature of the inhibition - in our model, we had a scalar adjust inhibition to a level that was "just-right", strong enough to measurably affect the signal, while not reducing the signal to zero.  This was very much a hand-tuned quality.  The values used for $\beta$ were chosen to be in this ideal window.  A model where inhibition was either inherently balanced with the strength of excitation, or at least a physiological justification for the mechanism of inhibition would be better moving forward.  Additionally, inhibition in the ORN-PN synapse seems to be presynaptic and divisive\cite{Nagel2015}.  Our model unrealistically represented ORN-PN inhibition as both postsynaptic and subtractive.  
+In the creation of such a simplistic model, a number of tradeoffs had to be made.  Chief among them is the unrealistic nature of the inhibition - in our model, we had a scalar adjust inhibition to a level that was "just-right", strong enough to measurably affect the signal, while not reducing the signal to zero.  This was very much a hand-tuned quality.  The values used for $\beta$ were chosen to be in this ideal window.  A model where inhibition was either inherently balanced with the strength of excitation, or at least a physiological justification for the mechanism of inhibition would be better moving forward.  Additionally, inhibition in the ORN-PN synapse seems to be presynaptic and divisive\cite{Nagel2015, Olsen2010}.  Our model unrealistically represented ORN-PN inhibition as both postsynaptic and subtractive.  The scale of the weights also varied across five or six orders of magnitude, which is again unrealistic, but may be solved by a switch to a model with divisive inhibition.
 
 \FloatBarrier
 \bibliographystyle{plainnat}

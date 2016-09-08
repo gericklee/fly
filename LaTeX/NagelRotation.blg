@@ -3,95 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: NagelRotation.aux
 The style file: plainnat.bst
 Database file #1: NagelRotation.bib.bib
-You're missing a field name---line 15 of file NagelRotation.bib.bib
- : 
- : %%url = {http://dx.doi.org/10.1016/j.neuron.2010.04.009},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-You're missing a field name---line 44 of file NagelRotation.bib.bib
- : 
- : %url = {http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=46570{\{}{\&}{\}}tool=pmcentrez{\{}{\&}{\}}rendertype=abstract$\backslash$nhttp://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=46570{\&}tool=pmcentrez{\&}rendertype=abstract},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-You're missing a field name---line 73 of file NagelRotation.bib.bib
- : 
- : %url = {http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=3933953{\&}tool=pmcentrez{\&}rendertype=abstract},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-You're missing a field name---line 90 of file NagelRotation.bib.bib
- : 
- : %url = {http://www.ncbi.nlm.nih.gov/pubmed/27076428},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-You're missing a field name---line 107 of file NagelRotation.bib.bib
- : 
- : %url = {http://dx.doi.org/10.1038/nn.2725 http://www.nature.com/doifinder/10.1038/nn.2725$\backslash$npapers3://publication/doi/10.1038/nn.2725},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-You're missing a field name---line 121 of file NagelRotation.bib.bib
- : 
- : %url = {http://dx.doi.org/10.1038/nn.3895},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-You're missing a field name---line 142 of file NagelRotation.bib.bib
- : 
- : %url = {http://www.ncbi.nlm.nih.gov/pubmed/24531306},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-Warning--there's a number but no volume in Bell1993
-Warning--empty year in Bell1993
-Warning--empty year in Bell1993
-Warning--there's a number but no volume in Kennedy2014
-Warning--empty year in Kennedy2014
-Warning--empty year in Kennedy2014
-Warning--there's a number but no volume in Nagel2011
-Warning--empty year in Nagel2011
-Warning--there's a number but no volume in Nagel2016
-Warning--empty year in Nagel2016
-Warning--there's a number but no volume in Nagel2015
-Warning--empty year in Nagel2015
-Warning--empty year in Nagel2015
-Warning--empty year in Wilson2013
-Warning--empty year in Wilson2013
-You've used 8 entries,
+You've used 9 entries,
             2773 wiz_defined-function locations,
-            659 strings with 6705 characters,
-and the built_in function-call counts, 4220 in all, are:
-= -- 399
-> -- 227
-< -- 5
-+ -- 78
-- -- 69
-* -- 386
-:= -- 649
-add.period$ -- 37
-call.type$ -- 8
-change.case$ -- 47
-chr.to.int$ -- 7
-cite$ -- 31
-duplicate$ -- 172
-empty$ -- 321
-format.name$ -- 81
-if$ -- 864
-int.to.chr$ -- 2
+            676 strings with 6830 characters,
+and the built_in function-call counts, 4530 in all, are:
+= -- 422
+> -- 257
+< -- 4
++ -- 87
+- -- 78
+* -- 407
+:= -- 709
+add.period$ -- 35
+call.type$ -- 9
+change.case$ -- 53
+chr.to.int$ -- 9
+cite$ -- 18
+duplicate$ -- 184
+empty$ -- 356
+format.name$ -- 91
+if$ -- 927
+int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 8
+missing$ -- 9
 newline$ -- 61
-num.names$ -- 32
-pop$ -- 99
+num.names$ -- 36
+pop$ -- 82
 preamble$ -- 1
-purify$ -- 39
+purify$ -- 44
 quote$ -- 0
-skip$ -- 103
+skip$ -- 140
 stack$ -- 0
-substring$ -- 198
-swap$ -- 19
-text.length$ -- 1
+substring$ -- 218
+swap$ -- 9
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 88
-warning$ -- 15
-while$ -- 39
+type$ -- 99
+warning$ -- 0
+while$ -- 43
 width$ -- 0
-write$ -- 133
-(There were 7 error messages)
+write$ -- 140
