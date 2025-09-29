@@ -11,7 +11,7 @@
 % Output:
 %      filtSD: standard deviation for use in generating a gaussian
 % 
-% Gerick Lee 2016-06-16
+% Gerick Lee 2016-06-16, git test comment 2025-09-29 (time flies!)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function filtSD = fwhm(fWidHz, sigLength, fs);
 
